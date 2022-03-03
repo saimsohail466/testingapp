@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block context %}
+  <h1>{{ post.title }}</h1>
+  <form action="/posts/{{ post.id }}/edit" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}
